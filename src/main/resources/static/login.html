@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<h2>登录页面</h2>
+<form action="/login" method="post">
+    <label for="username">账号：</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">密码：</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <button type="submit">登录</button>
+</form>
+
+<!-- 显示错误消息 -->
+<div>
+    <p style="color:red;">
+        <c:if test="${param.error != null}">
+            用户名或密码错误，请重试。
+        </c:if>
+    </p>
+</div>
+</body>
+</html>

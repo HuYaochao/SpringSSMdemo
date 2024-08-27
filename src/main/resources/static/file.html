@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="js/jquery.form.min.js"></script>
+</head>
+<body>
+
+<!--图片高级上传-->
+<form id="form1">
+    图像:
+    <input type="file" name="f" onchange="doUpload()" style="display:none">
+    <br>
+    <img id="img1" width="100px " src="https://oss.coding-future.com:9000/fileupload/icon.JPG"
+         onclick="selectImg()">
+    <br>
+</form>
+
+</body>
+
+<script>
+    function doUpload() {
+        //异步提交表单
+        $('#form1').ajaxSubmit({
+            url: '/file/fileUploadAdv',
+            type: 'post',
+            success: function (data) {
+                $("#img1").prop("src", data)//修改src属性
+            }
+        })
+    }
+
+    function selectImg() {
+        $('input[name="f"]').click();
+    }
+
+</script>
+</html>
